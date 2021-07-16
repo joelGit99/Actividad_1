@@ -3,12 +3,12 @@ package Herencias;
 import java.text.DecimalFormat;
 /**
  * Clase para crear lavadoras
- * @author Joel
+ * @author Joel, Jose Luis y Marius
  *
  */
 
 public class Lavadora extends Clases.Electrodomestico {
-	// Métodos
+	// MÃ©todos
 	private final double CARGA;
 	private final DecimalFormat DF = Clases.Electrodomestico.DF;
 	
@@ -27,9 +27,9 @@ public class Lavadora extends Clases.Electrodomestico {
 		this.CARGA = carga;
 	}
 	
-	// Métodos
+	// MÃ©todos
 	
-	// Extiendo el método de las clase padre, y le añado la condición de
+	// Extiendo el mÃ©todo de las clase padre, y le aÃ±ado la condiciÃ³n de
 	// si la carga es mayor a 30, al precio se le suman 50
 	public double precioFinal() {
         super.precioFinal();
@@ -43,7 +43,7 @@ public class Lavadora extends Clases.Electrodomestico {
 	
 	@Override
 	public String toString() {
-		return "Lavadora [PRECIO BASE=" + DF.format(PRECIOBASE) + "€" + ", COLOR=" + COLOR + ", CONSUMO ENERGÉTICO=" + CONSENERGETICO
+		return "Lavadora [PRECIO BASE=" + DF.format(PRECIOBASE) + "â‚¬" + ", COLOR=" + COLOR + ", CONSUMO ENERGÃ‰TICO=" + CONSENERGETICO
 				+ ", PESO=" + PESO + "kg" + ", CARGA=" + CARGA + "]";
 	}
 
