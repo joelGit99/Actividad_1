@@ -76,21 +76,27 @@ public class UD9App {
 		double sumaLavadoras = 0;
 		double sumaTV = 0;
 		double sumaElec = 0;
+		// Recorro el array de electrodomésticos, y muestro televisión y lavadora dependiendo del tipo
 		for (int i = 0; i < arrayElectrodomesticos.length; i++) {
 			if(arrayElectrodomesticos[i] instanceof Lavadora) {
 				System.out.println("Televisión " + i + ": " + DF.format(arrayElectrodomesticos[i].precioFinal()) + "€");
+				// Sumo el precio de cada lavadora
 				sumaLavadoras += arrayElectrodomesticos[i].precioFinal();
 			} else if(arrayElectrodomesticos[i] instanceof Television) {
 				System.out.println("Lavadora " + i + ": " + DF.format(arrayElectrodomesticos[i].precioFinal()) + "€");
+				// Sumo el precio de cada TV
 				sumaTV += arrayElectrodomesticos[i].precioFinal();
 			} else {
 				System.out.println("Electrodoméstico " + i + ": " + DF.format(arrayElectrodomesticos[i].precioFinal()) + "€");
+				// Sumo el precio de los electrodomésticos no tipados
 				sumaElec += arrayElectrodomesticos[i].precioFinal();
 			}
 		}
+		// Muestro el total de las lavadoras, TV, y electrodomésticos
 		System.out.println("El total de las lavadoras es: " + sumaLavadoras);
 		System.out.println("El total de las TV es: " + sumaTV);
 		System.out.println("El total de los electrodomésticos es: " + sumaElec);
+		// Sumo todos los totales y lo muestro
 		sumaPrecio = sumaLavadoras + sumaTV + sumaElec;
 		System.out.println("En total son " + DF.format(sumaPrecio) + "€");
 	}
