@@ -1,14 +1,18 @@
 package Herencias;
 /**
  * Clase para crear televisiones
- * @author Joel
+ * @author Team 6 Joel, Marius y Jose Luis
  *
  */
 public class Television extends Clases.Electrodomestico {
-	// Atributos
+	// Declaramos los atributos resolucion y sintonizador que solo seran de Television.
 	private int resolucion;
 	private boolean sintonizadorTDT;
-	// Constructores
+	/** Crearemos 3 constructores
+	* El primero contructor con todos los atributos por defecto.
+	* El segundo contructor con los atributos precio y peso asignados y los demas atributos seran por defecto.
+	* El tercer constructor con todos los atributos asignados.
+	*/
 	public Television() {
 		this.resolucion = 20;
 		this.sintonizadorTDT = false;
@@ -26,7 +30,7 @@ public class Television extends Clases.Electrodomestico {
 		PRECIOBASE = precioFinal();
 	}
 	
-	// Métodos
+	// El MÃ©todo precioFinal y ejecutara un if para resolucion y sintonizadorTDT, si las condiciones se cumplen aÃ±adira un precio extra al producto.
 	public double precioFinal() {
 		PRECIOBASE = super.precioFinal();
 		if(resolucion > 40) {
@@ -37,18 +41,19 @@ public class Television extends Clases.Electrodomestico {
 		}
 		return PRECIOBASE;
 	}
+	//Hacemos un toString.
 	@Override
 	public String toString() {
 		if(sintonizadorTDT) {
-			return "Televisión [PRECIO BASE=" + DF.format(PRECIOBASE) + "€" + ", COLOR=" + COLOR + ", CONSUMO ENERGÉTICO=" + CONSENERGETICO
-					+ ", PESO=" + PESO + "kg" + ", RESOLUCIÓN=" + resolucion + " pulgadas" + ", SINTONIZADOR TDT=" + "Sí" + "]";
+			return "TelevisiÃ³n [PRECIO BASE=" + DF.format(PRECIOBASE) + "â‚¬" + ", COLOR=" + COLOR + ", CONSUMO ENERGÃ‰TICO=" + CONSENERGETICO
+					+ ", PESO=" + PESO + "kg" + ", RESOLUCIÃ“N=" + resolucion + " pulgadas" + ", SINTONIZADOR TDT=" + "SÃ­" + "]";
 		} else {
-			return "Televisión [PRECIO BASE=" + DF.format(PRECIOBASE) + "€" + ", COLOR=" + COLOR + ", CONSUMO ENERGÉTICO=" + CONSENERGETICO
-					+ ", PESO=" + PESO + "kg" + ", RESOLUCIÓN=" + resolucion + " pulgadas" + ", SINTONIZADOR TDT=" + "No" + "]";
+			return "TelevisiÃ³n [PRECIO BASE=" + DF.format(PRECIOBASE) + "â‚¬" + ", COLOR=" + COLOR + ", CONSUMO ENERGÃ‰TICO=" + CONSENERGETICO
+					+ ", PESO=" + PESO + "kg" + ", RESOLUCIÃ“N=" + resolucion + " pulgadas" + ", SINTONIZADOR TDT=" + "No" + "]";
 		}
 		
 	}
-	// Getters y setters
+	// Generamos los Getters.
 	public int getResolucion() {
 		return resolucion;
 	}
