@@ -10,7 +10,7 @@ public class UD9App {
 	
 	public static void main(String[] args) {
 		
-		// Creo electrodomésticos y pruebo
+		// Creo electrodomÃ©sticos y pruebo
 		Electrodomestico elec1 = new Electrodomestico();
 		System.out.println(elec1);
 		
@@ -43,13 +43,13 @@ public class UD9App {
 		Television tv3 = new Television(1200, "Negro", 'C', 96.5, 60, true);
 		System.out.println(tv3);
 		
-		// Creo un array de electrodomésticos, y a cada posición asigno una lavadora o televisión
+		// Creo un array de electrodomÃ©sticos, y a cada posiciÃ³n asigno una lavadora o televisiÃ³n
 		Electrodomestico[] arrayElectrodomesticos = new Electrodomestico[10];
 		rellenarArray(arrayElectrodomesticos);
 		recorrerArray(arrayElectrodomesticos);
 	}
 	
-	// Método para rellenar el array
+	// MÃ©todo para rellenar el array
 	private static void rellenarArray(Electrodomestico[] arrayElectrodomesticos) {
 		arrayElectrodomesticos[0] = new Television(1000, "Azul", 'F', 85.2, 55, true);
 		arrayElectrodomesticos[1] = new Television(957, "Negro", 'A', 75.2, 50, false);
@@ -63,29 +63,29 @@ public class UD9App {
 		arrayElectrodomesticos[9] = new Lavadora(500.2, "Blanco", 'A', 326, 66);
 	}
 	
-	// Método que recorre el array de electrodomésticos, muestra por grupos de lavadoras y televisiones
-	// y muestra también el precio de cada uno, y la suma de todos
+	// MÃ©todo que recorre el array de electrodomÃ©sticos, muestra por grupos de lavadoras y televisiones
+	// y muestra tambiÃ©n el precio de cada uno, y la suma de todos
 	private static void recorrerArray(Electrodomestico[] arrayElectrodomesticos) {
 		double sumaPrecio = 0;
 		double sumaLavadoras = 0;
 		double sumaTV = 0;
 		double sumaElec = 0;
 		for (int i = 0; i < arrayElectrodomesticos.length; i++) {
-			if(arrayElectrodomesticos[i] instanceof Lavadora) {
-				System.out.println("Televisión " + i + ": " + DF.format(arrayElectrodomesticos[i].precioFinal()) + "€");
+			if(arrayElectrodomesticos[i] instanceof Television) {
+				System.out.println("TelevisiÃ³n " + i + ": " + DF.format(arrayElectrodomesticos[i].precioFinal()) + "â‚¬");
 				sumaLavadoras += arrayElectrodomesticos[i].precioFinal();
-			} else if(arrayElectrodomesticos[i] instanceof Television) {
-				System.out.println("Lavadora " + i + ": " + DF.format(arrayElectrodomesticos[i].precioFinal()) + "€");
+			} else if(arrayElectrodomesticos[i] instanceof Lavadora) {
+				System.out.println("Lavadora " + i + ": " + DF.format(arrayElectrodomesticos[i].precioFinal()) + "â‚¬");
 				sumaTV += arrayElectrodomesticos[i].precioFinal();
 			} else {
-				System.out.println("Electrodoméstico " + i + ": " + DF.format(arrayElectrodomesticos[i].precioFinal()) + "€");
+				System.out.println("ElectrodomÃ©stico " + i + ": " + DF.format(arrayElectrodomesticos[i].precioFinal()) + "â‚¬");
 				sumaElec += arrayElectrodomesticos[i].precioFinal();
 			}
 		}
 		System.out.println("El total de las lavadoras es: " + sumaLavadoras);
 		System.out.println("El total de las TV es: " + sumaTV);
-		System.out.println("El total de los electrodomésticos es: " + sumaElec);
+		System.out.println("El total de los electrodomÃ©sticos es: " + sumaElec);
 		sumaPrecio = sumaLavadoras + sumaTV + sumaElec;
-		System.out.println("En total son " + DF.format(sumaPrecio) + "€");
+		System.out.println("En total son " + DF.format(sumaPrecio) + "â‚¬");
 	}
 }
