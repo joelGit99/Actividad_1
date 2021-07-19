@@ -46,21 +46,21 @@ public class UD9App {
 		double sumaElec = 0;
 		for (int i = 0; i < arrayElectrodomesticos.length; i++) {
 			if (arrayElectrodomesticos[i] instanceof Television) {
-				System.out.println("Television " + i + ": " + DF.format(arrayElectrodomesticos[i].precioFinal()) + "€");
-				sumaLavadoras += arrayElectrodomesticos[i].precioFinal();
+				System.out.println("Television " + i + ": " + DF.format(arrayElectrodomesticos[i].precioFinal()) + "â‚¬");
+				sumaTv += arrayElectrodomesticos[i].precioFinal();
 			} else if (arrayElectrodomesticos[i] instanceof Lavadora) {
-				System.out.println("Lavadora " + i + ": " + DF.format(arrayElectrodomesticos[i].precioFinal()) + "€");
-				sumaTV += arrayElectrodomesticos[i].precioFinal();
+				System.out.println("Lavadora " + i + ": " + DF.format(arrayElectrodomesticos[i].precioFinal()) + "â‚¬");
+				sumaLavadoras += arrayElectrodomesticos[i].precioFinal();
 			} else {
 				System.out.println(
-						"Electrodomestico " + i + ": " + DF.format(arrayElectrodomesticos[i].precioFinal()) + "€");
+						"Electrodomestico " + i + ": " + DF.format(arrayElectrodomesticos[i].precioFinal()) + "â‚¬");
 				sumaElec += arrayElectrodomesticos[i].precioFinal();
 			}
 		}
-		System.out.println("El total de las lavadoras es: " + DF.format(sumaLavadoras) + "€");
-		System.out.println("El total de las TV es: " + DF.format(sumaTV) + "€");
-		System.out.println("El total de los electrodomesticos es: " + DF.format(sumaElec) + "€");
+		System.out.println("El total de las lavadoras es: " + DF.format(sumaLavadoras) + "â‚¬");
+		System.out.println("El total de las TV es: " + DF.format(sumaTV) + "â‚¬");
+		System.out.println("El total de los electrodomesticos es: " + DF.format(sumaElec) + "â‚¬");
 		sumaPrecio = sumaLavadoras + sumaTV + sumaElec;
-		System.out.println("En total son " + DF.format(sumaPrecio) + "€");
+		System.out.println("En total son " + DF.format(sumaPrecio) + "â‚¬");
 	}
 }
