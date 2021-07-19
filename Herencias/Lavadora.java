@@ -8,7 +8,7 @@ import java.text.DecimalFormat;
  */
 
 public class Lavadora extends Clases.Electrodomestico {
-	// Métodos
+	// Atributos
 	private final double CARGA = 5;
 	private final DecimalFormat DF = Clases.Electrodomestico.DF;
 	
@@ -27,9 +27,9 @@ public class Lavadora extends Clases.Electrodomestico {
 		this.carga = carga;
 	}
 	
-	// Métodos
+	// MÃ©todos
 	
-	// Extiendo el método de las clase padre, y le añado la condición de
+	// Extiendo el mÃ©todo de las clase padre, y le aÃ±ado la condiciÃ³n de
 	// si la carga es mayor a 30, al precio se le suman 50
 	public double precioFinal() {
         super.precioFinal();
@@ -43,7 +43,7 @@ public class Lavadora extends Clases.Electrodomestico {
 	
 	@Override
 	public String toString() {
-		return "Lavadora [PRECIO BASE=" + DF.format(precioBase) + "€" + ", COLOR=" + color + ", CONSUMO ENERGÉTICO=" + consEnergetico
+		return "Lavadora [PRECIO BASE=" + DF.format(precioBase) + "â‚¬" + ", COLOR=" + color + ", CONSUMO ENERGÃ‰TICO=" + consEnergetico
 				+ ", PESO=" + peso + "kg" + ", CARGA=" + carga + "]";
 	}
 
