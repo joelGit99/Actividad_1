@@ -3,47 +3,54 @@ import java.text.DecimalFormat;
 
 /**
  * Clase para crear electrodomésticos
- * @author Joel
+ * @author Joel, Marius, Jose Luis
  *
  */
 
 public class Electrodomestico {
+	//Constantes para los valores por defecto
+	protected final String COLOR = "blanco";
+	protected final int PRECIOBASE = 100;
+	protected final char CONSENERGETICO = 'F';
+	protected final int PESO = 5;
+	
 	// Atributos
-	protected double PRECIOBASE;
-	protected final String COLOR;
-	protected final char CONSENERGETICO;
-	protected final double PESO;
+	protected double precioBase;
+	protected String color;
+	protected char consEnergetico;
+	protected double peso;
+	
 	public static final DecimalFormat DF = new DecimalFormat("##.##");
 	// Constructores
 	public Electrodomestico() {
-		this.PRECIOBASE = 100;
-		this.COLOR = UD9App.COLOR;
-		this.CONSENERGETICO = 'F';
-		this.PESO = 5;
+		this.precioBase = PRECIOBASE;
+		this.color = COLOR;
+		this.consEnergetico = CONSENERGETICO;
+		this.peso = PESO;
 	}
 	public Electrodomestico(double precioBase, double peso) {
-		this.PRECIOBASE = precioBase;
-		this.PESO = peso;
-		this.COLOR = UD9App.COLOR;
-		this.CONSENERGETICO = 'F';
+		this.precioBase = precioBase;
+		this.peso = peso;
+		this.color = COLOR;
+		this.consEnergetico = CONSENERGETICO;
 	}
 	public Electrodomestico(double precioBase, String color, char consEnergetico, double peso) {
-		this.PRECIOBASE = precioBase;
+		this.precioBase = precioBase;
 		// Compruebo si el color está en la lista o no,
 		// si lo está, se asigna dicho valor, sino, se pone otro por defecto
 		if(comprobarColor(color)) {
-			this.COLOR = color;
+			this.color = color;
 		} else {
-			this.COLOR = UD9App.COLOR;
+			this.color = COLOR;
 		}
 		// Compruebo si el consumo energético está entre A y F
 		// si lo está, se asigna, sino, se asigna el por defecto
 		if(comprobarConsumoEnergetico(consEnergetico)) {
-			this.CONSENERGETICO = consEnergetico;
+			this.consEnergetico = consEnergetico;
 		} else {
-			this.CONSENERGETICO = 'F';
+			this.consEnergetico = CONSENERGETICO;
 		}
-		this.PESO = peso;
+		this.peso = peso;
 	}
 	
 	// Métodos
@@ -61,11 +68,11 @@ public class Electrodomestico {
 	// Método que devuelve true o false, dependiendo de si el color está
 	// entre la lista
 	private boolean comprobarColor(String color) {
-		if(color.equalsIgnoreCase(UD9App.COLOR) || 
-				color.equalsIgnoreCase(UD9App.COLOR2) ||
-				color.equalsIgnoreCase(UD9App.COLOR3) ||
-				color.equalsIgnoreCase(UD9App.COLOR4) ||
-				color.equalsIgnoreCase(UD9App.COLOR5)) {
+		if(color.equalsIgnoreCase("blanco") || 
+				color.equalsIgnoreCase("Negro") ||
+				color.equalsIgnoreCase("Rojo") ||
+				color.equalsIgnoreCase("Azul") ||
+				color.equalsIgnoreCase("Gris")) {
 			return true;
 		} else {
 			return false;
@@ -77,57 +84,56 @@ public class Electrodomestico {
 	 * @return double
 	 */
 	public double precioFinal() {
-		switch(this.CONSENERGETICO) {
+		switch(this.consEnergetico) {
 		case 'A':
-			this.PRECIOBASE += 100;
+			this.precioBase += 100;
 			break;
 		case 'B':
-			this.PRECIOBASE += 80;
+			this.precioBase += 80;
 			break;
 		case 'C':
-			this.PRECIOBASE += 60;
+			this.precioBase += 60;
 			break;
 		case 'D':
-			this.PRECIOBASE += 50;
+			this.precioBase += 50;
 			break;
 		case 'E':
-			this.PRECIOBASE += 30;
+			this.precioBase += 30;
 			break;
 		default :
-			this.PRECIOBASE += 10;
+			this.precioBase += 10;
 		}
 		
-		if(this.PESO >= 0 && this.PESO <= 19) {
-			this.PRECIOBASE += 10;
-		} else if(this.PESO >= 20 && this.PESO <= 49) {
-			this.PRECIOBASE += 50;
-		} else if(this.PESO >= 50 && this.PESO <= 79) {
-			this.PRECIOBASE += 80;
-		} else if(this.PESO > 80) {
-			this.PRECIOBASE += 100;
+		if(this.peso >= 0 && this.peso <= 19) {
+			this.precioBase += 10;
+		} else if(this.peso >= 20 && this.peso <= 49) {
+			this.precioBase += 50;
+		} else if(this.peso >= 50 && this.peso <= 79) {
+			this.precioBase += 80;
+		} else if(this.peso > 80) {
+			this.precioBase += 100;
 		}
 		
-		return this.PRECIOBASE;
+		return this.precioBase;
 			
 	}
 	
 	@Override
 	public String toString() {
-		return "Electrodomestico [PRECIO BASE=" + DF.format(PRECIOBASE) + "€" + ", COLOR=" + COLOR + ", CONSUMO ENERGÉTICO=" + CONSENERGETICO
-				+ ", PESO=" + PESO + "kg" + "]";
+		return "Electrodomestico [PRECIO BASE=" + DF.format(precioBase) + "€" + ", COLOR=" + color + ", CONSUMO ENERGÉTICO=" + consEnergetico
+				+ ", PESO=" + peso + "kg" + "]";
 	}
 	// Getters
-	public double getPRECIOBASE() {
-		return PRECIOBASE;
+	public double getPrecioBase() {
+		return precioBase;
 	}
-	public String getCOLOR() {
-		return COLOR;
+	public String getColor() {
+		return color;
 	}
-	public char getCONSENERGETICO() {
-		return CONSENERGETICO;
+	public char getConsEnergetico() {
+		return consEnergetico;
 	}
-	public double getPESO() {
-		return PESO;
+	public double getPeso() {
+		return peso;
 	}
-	
 }

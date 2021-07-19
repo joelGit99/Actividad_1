@@ -1,7 +1,7 @@
 package Herencias;
 /**
  * Clase para crear televisiones
- * @author Team 6 Joel, Marius y Jose Luis
+ * @author Joel, Marius, Jose Luis
  *
  */
 public class Television extends Clases.Electrodomestico {
@@ -21,35 +21,35 @@ public class Television extends Clases.Electrodomestico {
 		super(precioBase, peso);
 		this.resolucion = 20;
 		this.sintonizadorTDT = false;
-		PRECIOBASE = precioFinal();
+		precioBase = precioFinal();
 	}
 	public Television(double precioBase, String color, char consEnergetico, double peso, int resolucion, boolean sintonizadorTDT) {
 		super(precioBase, color, consEnergetico, peso);
 		this.resolucion = resolucion;
 		this.sintonizadorTDT = sintonizadorTDT;
-		PRECIOBASE = precioFinal();
+		precioBase = precioFinal();
 	}
 	
-	// El MÃ©todo precioFinal y ejecutara un if para resolucion y sintonizadorTDT, si las condiciones se cumplen aÃ±adira un precio extra al producto.
+	// El Método precioFinal y ejecutara un if para resolucion y sintonizadorTDT, si las condiciones se cumplen añadira un precio extra al producto.
 	public double precioFinal() {
-		PRECIOBASE = super.precioFinal();
+		precioBase = super.precioFinal();
 		if(resolucion > 40) {
-			PRECIOBASE = PRECIOBASE + (PRECIOBASE * 0.3);
+			precioBase = precioBase + (precioBase * 0.3);
 		}
 		if(sintonizadorTDT) {
-			PRECIOBASE += 50;
+			precioBase += 50;
 		}
-		return PRECIOBASE;
+		return precioBase;
 	}
 	//Hacemos un toString.
 	@Override
 	public String toString() {
 		if(sintonizadorTDT) {
-			return "TelevisiÃ³n [PRECIO BASE=" + DF.format(PRECIOBASE) + "â‚¬" + ", COLOR=" + COLOR + ", CONSUMO ENERGÃ‰TICO=" + CONSENERGETICO
-					+ ", PESO=" + PESO + "kg" + ", RESOLUCIÃ“N=" + resolucion + " pulgadas" + ", SINTONIZADOR TDT=" + "SÃ­" + "]";
+			return "Televisión [PRECIO BASE=" + DF.format(precioBase) + "€" + ", COLOR=" + COLOR + ", CONSUMO ENERGÉTICO=" + CONSENERGETICO
+					+ ", PESO=" + PESO + "kg" + ", RESOLUCIÓN=" + resolucion + " pulgadas" + ", SINTONIZADOR TDT=" + "Sí" + "]";
 		} else {
-			return "TelevisiÃ³n [PRECIO BASE=" + DF.format(PRECIOBASE) + "â‚¬" + ", COLOR=" + COLOR + ", CONSUMO ENERGÃ‰TICO=" + CONSENERGETICO
-					+ ", PESO=" + PESO + "kg" + ", RESOLUCIÃ“N=" + resolucion + " pulgadas" + ", SINTONIZADOR TDT=" + "No" + "]";
+			return "Televisión [PRECIO BASE=" + DF.format(precioBase) + "€" + ", COLOR=" + COLOR + ", CONSUMO ENERGÉTICO=" + CONSENERGETICO
+					+ ", PESO=" + PESO + "kg" + ", RESOLUCIÓN=" + resolucion + " pulgadas" + ", SINTONIZADOR TDT=" + "No" + "]";
 		}
 		
 	}
@@ -60,5 +60,4 @@ public class Television extends Clases.Electrodomestico {
 	public boolean isSintonizadorTDT() {
 		return sintonizadorTDT;
 	}
-	
 }

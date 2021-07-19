@@ -6,31 +6,25 @@ import Herencias.Lavadora;
 import Herencias.Television;
 
 public class UD9App {
-	//Declaramos las variables de los colores.
-	public final static String COLOR = "Blanco";
-	public final static String COLOR2 = "Negro";
-	public final static String COLOR3 = "Rojo";
-	public final static String COLOR4 = "Azul";
-	public final static String COLOR5 = "Gris";
 	public static final DecimalFormat DF = new DecimalFormat("##.##");
 	
 	public static void main(String[] args) {
 		
-		// Creo electrodom√©sticos y pruebo
+		// Creo electrodomÈsticos y pruebo
 		Electrodomestico elec1 = new Electrodomestico();
 		System.out.println(elec1);
 		
 		Electrodomestico elec2 = new Electrodomestico(250.62, 125.14);
 		System.out.println(elec2);
 		elec2.precioFinal();
-		System.out.println(elec2.getPRECIOBASE());
+		System.out.println(elec2.getPrecioBase());
 		
 		Electrodomestico elec3 = new Electrodomestico(500.12, "gris", 'B', 400.23);
 		System.out.println(elec3);
 		elec3.precioFinal();
-		System.out.println(elec3.getPRECIOBASE());
+		System.out.println(elec3.getPrecioBase());
 		
-		Lavadora lavadora1 = new Lavadora();
+		Lavadora lavadora1 = new Lavadora(349.99, 50);
 		System.out.println(lavadora1);
 		System.out.println(lavadora1.getCARGA());
 		
@@ -49,13 +43,13 @@ public class UD9App {
 		Television tv3 = new Television(1200, "Negro", 'C', 96.5, 60, true);
 		System.out.println(tv3);
 		
-		// Creo un array de electrodom√©sticos, y a cada posici√≥n asigno una lavadora o televisi√≥n
+		// Creo un array de electrodomÈsticos, y a cada posiciÛn asigno una lavadora o televisiÛn
 		Electrodomestico[] arrayElectrodomesticos = new Electrodomestico[10];
 		rellenarArray(arrayElectrodomesticos);
 		recorrerArray(arrayElectrodomesticos);
 	}
 	
-	// M√©todo para rellenar el array
+	// MÈtodo para rellenar el array
 	private static void rellenarArray(Electrodomestico[] arrayElectrodomesticos) {
 		arrayElectrodomesticos[0] = new Television(1000, "Azul", 'F', 85.2, 55, true);
 		arrayElectrodomesticos[1] = new Television(957, "Negro", 'A', 75.2, 50, false);
@@ -69,36 +63,29 @@ public class UD9App {
 		arrayElectrodomesticos[9] = new Lavadora(500.2, "Blanco", 'A', 326, 66);
 	}
 	
-	// M√©todo que recorre el array de electrodom√©sticos, muestra por grupos de lavadoras y televisiones
-	// y muestra tambi√©n el precio de cada uno, y la suma de todos
+	// MÈtodo que recorre el array de electrodomÈsticos, muestra por grupos de lavadoras y televisiones
+	// y muestra tambiÈn el precio de cada uno, y la suma de todos
 	private static void recorrerArray(Electrodomestico[] arrayElectrodomesticos) {
 		double sumaPrecio = 0;
 		double sumaLavadoras = 0;
 		double sumaTV = 0;
 		double sumaElec = 0;
-		// Recorro el array de electrodom√©sticos, y muestro televisi√≥n y lavadora dependiendo del tipo
 		for (int i = 0; i < arrayElectrodomesticos.length; i++) {
 			if(arrayElectrodomesticos[i] instanceof Lavadora) {
-				System.out.println("Televisi√≥n " + i + ": " + DF.format(arrayElectrodomesticos[i].precioFinal()) + "‚Ç¨");
-				// Sumo el precio de cada lavadora
+				System.out.println("TelevisiÛn " + i + ": " + DF.format(arrayElectrodomesticos[i].precioFinal()) + "Ä");
 				sumaLavadoras += arrayElectrodomesticos[i].precioFinal();
 			} else if(arrayElectrodomesticos[i] instanceof Television) {
-				System.out.println("Lavadora " + i + ": " + DF.format(arrayElectrodomesticos[i].precioFinal()) + "‚Ç¨");
-				// Sumo el precio de cada TV
+				System.out.println("Lavadora " + i + ": " + DF.format(arrayElectrodomesticos[i].precioFinal()) + "Ä");
 				sumaTV += arrayElectrodomesticos[i].precioFinal();
 			} else {
-				System.out.println("Electrodom√©stico " + i + ": " + DF.format(arrayElectrodomesticos[i].precioFinal()) + "‚Ç¨");
-				// Sumo el precio de los electrodom√©sticos no tipados
+				System.out.println("ElectrodomÈstico " + i + ": " + DF.format(arrayElectrodomesticos[i].precioFinal()) + "Ä");
 				sumaElec += arrayElectrodomesticos[i].precioFinal();
 			}
 		}
-		// Muestro el total de las lavadoras, TV, y electrodom√©sticos
 		System.out.println("El total de las lavadoras es: " + sumaLavadoras);
 		System.out.println("El total de las TV es: " + sumaTV);
-		System.out.println("El total de los electrodom√©sticos es: " + sumaElec);
-		// Sumo todos los totales y lo muestro
+		System.out.println("El total de los electrodomÈsticos es: " + sumaElec);
 		sumaPrecio = sumaLavadoras + sumaTV + sumaElec;
-		System.out.println("En total son " + DF.format(sumaPrecio) + "‚Ç¨");
+		System.out.println("En total son " + DF.format(sumaPrecio) + "Ä");
 	}
-
 }
